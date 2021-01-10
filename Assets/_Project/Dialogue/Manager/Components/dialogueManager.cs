@@ -16,12 +16,10 @@ public class dialogueManager : MonoBehaviour
 
     private GameObject currentNode;
 
-    public void startDialogue(startNode start)
+    public void startDialogue(GameObject start)
     {
-        Color color = dialogueOverlay.GetComponent<Image>().color;
-        color.a = 1f;
-        dialogueOverlay.GetComponent<Image>().color = color;
-        this.onNodeSelect(start.start);
+        dialogueOverlay.SetActive(true);
+        onNodeSelect(start);
     }
 
     private void KillAllChildren(UnityEngine.Transform parent)
@@ -60,7 +58,9 @@ public class dialogueManager : MonoBehaviour
         for (var i = 0; i < length; i++)
         {
             var choice = Instantiate(choicePrefab, choiceList);
-            choice.GetComponentInChildren<TextMeshProUGUI>().SetText(choices[i].text);
+            choice
+                .GetComponentInChildren<TextMeshProUGUI>()
+                .SetText(choices[i].text);
             choice
                 .onClick
                 .AddListener(delegate ()
@@ -74,14 +74,29 @@ public class dialogueManager : MonoBehaviour
     {
         var action = currentNode.GetComponent<actionNode>();
         action.onAction.Invoke();
-        this.onNodeSelect(action.next);
+        onNodeSelect(action.next);
+    }
+
+    private void parseCondition()
+    {
+        currentNode.GetComponent<BooleanHolder>().boolean = true;
+        var condition = currentNode.GetComponent<conditionNode>();
+        condition.onCondition.Invoke();
+        if (currentNode.GetComponent<BooleanHolder>().boolean)
+        {
+            onNodeSelect(condition.next);
+        }
+        else
+        {
+            onNodeSelect(condition.defaultNext);
+        }
     }
 
     private void onNodeSelect(GameObject node)
     {
         currentNode = node;
         Console.WriteLine("Test");
-        this.nextNode();
+        nextNode();
     }
 
     public void nextNode()
@@ -90,13 +105,16 @@ public class dialogueManager : MonoBehaviour
         switch (type.type)
         {
             case "dialogue":
-                this.parseDialogue();
+                parseDialogue();
                 break;
             case "choice":
-                this.parseChoice();
+                parseChoice();
                 break;
             case "action":
-                this.parseAction();
+                parseAction();
+                break;
+            case "condition":
+                parseCondition();
                 break;
         }
     }
@@ -106,5 +124,10 @@ public class dialogueManager : MonoBehaviour
         Color color = dialogueOverlay.GetComponent<SpriteRenderer>().color;
         color.a = 0f;
         dialogueOverlay.GetComponent<SpriteRenderer>().color = color;
+    }
+
+    private void Start()
+    {
+        dialogueOverlay.SetActive(false);
     }
 }

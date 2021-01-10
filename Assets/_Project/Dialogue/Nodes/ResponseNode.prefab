@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2717692059092323406}
   - component: {fileID: -5019661708486189913}
   m_Layer: 0
-  m_Name: ChoiceNode
+  m_Name: ResponseNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
