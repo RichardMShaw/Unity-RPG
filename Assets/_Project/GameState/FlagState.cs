@@ -3,7 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlagState : MonoBehaviour
+[
+    CreateAssetMenu(
+        fileName = "FlagState",
+        menuName = "Unity-RPG/FlagState",
+        order = 0)
+]
+public class FlagState : ScriptableObject
 {
     [Serializable]
     public struct Flag
@@ -19,7 +25,7 @@ public class FlagState : MonoBehaviour
         }
     }
 
-    public List<Flag> flags;
+    public List<Flag> flags = new List<Flag>();
 
     private Dictionary<string, int> index;
 
@@ -121,7 +127,50 @@ public class FlagState : MonoBehaviour
         }
     }
 
-    private void Start()
+    public bool compareTwineFlagtoFlag(string key1, string op, string key2)
+    {
+        int value1 = getVal(key1);
+        int value2 = getVal(key2);
+        switch (op)
+        {
+            case "<":
+                return value1 < value2;
+            case "==":
+                return value1 == value2;
+            case ">":
+                return value1 > value2;
+            case "<=":
+                return value1 <= value2;
+            case ">=":
+                return value1 >= value2;
+        }
+        return false;
+    }
+
+    public bool compareTwineFlagtoVal(
+        string key,
+        string op,
+        int val
+    )
+    {
+        int value = getVal(key);
+        switch (op)
+        {
+            case "<":
+                return value < val;
+            case "==":
+                return value == val;
+            case ">":
+                return value > val;
+            case "<=":
+                return value <= val;
+            case ">=":
+                return value >= val;
+        }
+        return false;
+    }
+
+    public void Start()
     {
         index = new Dictionary<string, int>();
         for (int i = flags.Count - 1; i > -1; i--)
