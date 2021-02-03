@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d2f8777267209b4eb5b596a52801165, type: 3}
-  m_Name: ConNode
+  m_Script: {fileID: 11500000, guid: 4ae4f0e376c854445a626293d4f10355, type: 3}
+  m_Name: GameState
   m_EditorClassIdentifier: 
-  choices:
-  - onCondition:
-      m_PersistentCalls:
-        m_Calls: []
-    args:
-    - 
-    - 
-    - 
-    - 
-    next: {fileID: 0}
-  defaultNext: {fileID: 0}
+  state:
+    flags:
+    - name: fire
+      value: 1
+    - name: water
+      value: 2
+    - name: wind
+      value: 10
