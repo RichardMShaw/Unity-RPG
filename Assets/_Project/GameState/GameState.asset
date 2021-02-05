@@ -19,4 +19,9 @@ MonoBehaviour:
     - name: water
       value: 2
     - name: wind
+      value: 3
+    - name: dragon
       value: 10
+    playerInv:
+      maxSize: 0
+      items: []
