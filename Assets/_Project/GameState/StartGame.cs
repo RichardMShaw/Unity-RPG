@@ -5,9 +5,4 @@ using UnityEngine;
 public class StartGame : MonoBehaviour
 {
     public GameState gameState;
-
-    void Start()
-    {
-        gameState.start();
-    }
 }

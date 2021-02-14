@@ -11,12 +11,15 @@ using UnityEngine;
 ]
 public class GameState : ScriptableObject
 {
+    public static GameState gameState;
+
     public State state;
 
     public FlagCollection flags;
 
-    public void start()
+    private void OnEnable()
     {
+        gameState = this;
         flags = new FlagCollection(state.flags);
     }
 

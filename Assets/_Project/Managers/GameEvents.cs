@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameEvents : MonoBehaviour
@@ -12,6 +10,36 @@ public class GameEvents : MonoBehaviour
         events = this;
     }
 
+    public event Action onBattleStart;
+
+    public void battleStart()
+    {
+        if (onBattleStart != null)
+        {
+            onBattleStart();
+        }
+    }
+
+    public event Action onBattleEnd;
+
+    public void battleEnd()
+    {
+        if (onBattleEnd != null)
+        {
+            onBattleEnd();
+        }
+    }
+
+    public event Action onTurnStart;
+
+    public void turnStart()
+    {
+        if (onTurnStart != null)
+        {
+            onTurnStart();
+        }
+    }
+
     public event Action onTurnEnd;
 
     public void turnEnd()
@@ -19,6 +47,16 @@ public class GameEvents : MonoBehaviour
         if (onTurnEnd != null)
         {
             onTurnEnd();
+        }
+    }
+
+    public event Action<SkillQueueSlot> onAddSkillToQueue;
+
+    public void addSkillToQueue(SkillQueueSlot slot)
+    {
+        if (onAddSkillToQueue != null)
+        {
+            onAddSkillToQueue (slot);
         }
     }
 }
