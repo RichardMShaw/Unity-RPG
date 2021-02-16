@@ -4,23 +4,52 @@ using UnityEngine;
 [Serializable]
 public class StatusEffectSlot
 {
+    //Reference to the status effect
     public StatusEffect effect;
 
-    public CharacterSlot parent;
+    //Reference to who inflicted the status effect
+    public CharacterSlot caster;
 
+    //How many turns until it is removed. -1 or lower means infinite duration
     public int duration;
 
-    public int dispel;
+    //Can't be removed through skills
+    public bool unremovable;
+
+    //Is not removed after combat
+    public bool lasting;
+
+    //Is not removed on defeat
+    public bool persistance;
+
     public StatusEffectSlot(
-        CharacterSlot _parent,
+        CharacterSlot _caster,
         StatusEffect _effect,
-        int _duration,
-        int _dispel
+        int _duration
     )
     {
-        parent = _parent;
+        caster = _caster;
         effect = _effect;
         duration = _duration;
-        dispel = _dispel;
+        unremovable = false;
+        lasting = false;
+        persistance = false;
+    }
+
+    public StatusEffectSlot(
+        CharacterSlot _caster,
+        StatusEffect _effect,
+        int _duration,
+        bool _unremovable,
+        bool _lasting,
+        bool _persistance
+    )
+    {
+        caster = _caster;
+        effect = _effect;
+        duration = _duration;
+        unremovable = _unremovable;
+        lasting = _lasting;
+        persistance = _persistance;
     }
 }
