@@ -12,6 +12,12 @@ public enum SkillType
     Field
 }
 
+[
+    CreateAssetMenu(
+        fileName = "A New Skill",
+        menuName = "Combat/Skill",
+        order = 0)
+]
 [Serializable]
 public class Skill : ScriptableObject
 {
@@ -24,8 +30,10 @@ public class Skill : ScriptableObject
     [TextArea(20, 3)]
     public string description;
 
+    [SerializeField]
     public List<StatusEffectTag> restrictions;
 
+    [SerializeField]
     public List<StatusEffectTag> requirements;
 
     public bool isValid(CharacterSlot caster)

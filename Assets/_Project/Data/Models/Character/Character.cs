@@ -26,9 +26,4 @@ public class Character : ScriptableObject
     public List<StatusEffectSlot> status;
 
     public CharacterRow row;
-
-    public Field getField()
-    {
-        return null;
-    }
 }

@@ -53,4 +53,19 @@ public class CharacterSlot : ScriptableObject
     public virtual void removeTempStatusEffectSlot(TempStatusEffectSlot slot)
     {
     }
+
+    public virtual List<TempStatusEffectSlot> getTemporaryStatusEffects()
+    {
+        return null;
+    }
+
+    public virtual List<StatusEffectSlot> getPassiveStatusEffects()
+    {
+        return null;
+    }
+
+    public virtual Field getField()
+    {
+        return null;
+    }
 }

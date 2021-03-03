@@ -35,19 +35,16 @@ public class CombatManager : ScriptableObject
         skill = _skill;
 
         state = CombatState.SelectTarget;
-
-        
     }
 
-    public void enemyClicked(Enemy _target)
+    public void enemyClicked(EnemySlot _target)
     {
         if (state == CombatState.SelectTarget)
         {
             target = _target;
         }
-
-        else if(state == CombatState.PlayerMenu){
-            
+        else if (state == CombatState.PlayerMenu)
+        {
         }
     }
 }
