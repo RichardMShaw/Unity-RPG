@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class TempStatusEffectSlot
+public class TempStatusEffectSlot : StatusEffectSlot
 {
     //Reference to the status effect
-    public StatusEffect effect;
-
     //Reference to who inflicted the status effect
     public CharacterSlot caster;
 
     //Potential values a status effect will need.
-    public List<int> values;
-
     //How many turns until it is removed. -1 or lower means infinite duration
     public int duration;
 
@@ -33,7 +29,7 @@ public class TempStatusEffectSlot
     )
     {
         caster = _caster;
-        effect = _effect;
+        statusEffect = _effect;
         duration = _duration;
         unremovable = false;
         lasting = false;
@@ -50,7 +46,7 @@ public class TempStatusEffectSlot
     )
     {
         caster = _caster;
-        effect = _effect;
+        statusEffect = _effect;
         duration = _duration;
         unremovable = _unremovable;
         lasting = _lasting;

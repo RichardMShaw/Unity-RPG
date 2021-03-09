@@ -15,7 +15,7 @@ public enum CombatState
         menuName = "Managers/Combat",
         order = 0)
 ]
-public class CombatManager : ScriptableObject
+public class CombatController : ScriptableObject
 {
     public Skill skill;
 
@@ -25,7 +25,7 @@ public class CombatManager : ScriptableObject
 
     private CombatState state;
 
-    public void skillClicked(Skill _skill)
+    public void onSkillClicked(Skill _skill)
     {
         if (state != CombatState.SelectSkill)
         {
@@ -37,7 +37,7 @@ public class CombatManager : ScriptableObject
         state = CombatState.SelectTarget;
     }
 
-    public void enemyClicked(EnemySlot _target)
+    public void onEnemyClicked(EnemySlot _target)
     {
         if (state == CombatState.SelectTarget)
         {

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SkillButton : MonoBehaviour
 {
+    public CombatController combatController;
+
     public Skill skill;
 
     public TextMeshProUGUI text;
@@ -16,18 +18,8 @@ public class SkillButton : MonoBehaviour
         text.SetText(skill.label);
     }
 
-    public void skillSelected(){
-
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
+    public void onClicked()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        combatController.onSkillClicked (skill);
     }
 }

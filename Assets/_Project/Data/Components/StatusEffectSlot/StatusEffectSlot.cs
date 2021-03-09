@@ -9,10 +9,21 @@ public class StatusEffectSlot
 
     public List<float> values;
 
-    public StatusEffectType type {
-        get {
+    public StatusEffectType type
+    {
+        get
+        {
             return statusEffect.type;
         }
     }
 
+    public string print()
+    {
+        return statusEffect.print();
+    }
+
+    public StatusEffectType getType()
+    {
+        return statusEffect.type;
+    }
 }

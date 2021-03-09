@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   type: 1
+  icon: {fileID: 21300000, guid: 7843ecea7b8bc5f468f38b7011aa918a, type: 3}
   description: 
   turnEndSkill: {fileID: 11400000, guid: 6da122d9aec37de4fb80292544d9d5d4, type: 2}

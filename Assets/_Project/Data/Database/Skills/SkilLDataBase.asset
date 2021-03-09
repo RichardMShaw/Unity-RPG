@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c547324565a2b94c83649af5e01522c, type: 3}
   m_Name: SkilLDataBase
   m_EditorClassIdentifier: 
-  skills: []
+  skills:
+  - {fileID: 11400000, guid: 3aa3620b569abdb4795bc4530fcbb813, type: 2}

@@ -4,27 +4,40 @@ using UnityEngine;
 
 public class StatusEffectOverview : MonoBehaviour
 {
+    public GameObject statusEffectSlot;
 
-    public GameObject buffPrefab;
-    public GameObject debuffPrefab;
-    public GameObject typelessPrefab;
     public GameObject temp;
 
     public GameObject passives;
-    public void setTemp(List<TempStatusEffectSlot> list){
-        GameObject[] children = new GameObject[temp.transform.childCount];
-        foreach(Transform child in temp.transform){
-            Destroy(child.gameObject);
-        }
-        int len = list.Count;
-        for(int i = 0; i < len; i++){
-        }
 
+    public void setEnemy(EnemySlot enemy)
+    {
     }
 
-    // Update is called once per frame
+    public void setPlayer(PlayerSlot player)
+    {
+    }
+
+    private void setStatusEffectSlots(CharacterSlot character)
+    {
+        var tempList = character.getTemporaryStatusEffects();
+        var passivesList = character.getPassiveStatusEffects();
+
+        foreach (Transform child in temp.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        int len = tempList.Count;
+        for (int i = 0; i < len; i++)
+        {
+            GameObject slotObj = Instantiate(statusEffectSlot);
+            var slot =
+                statusEffectSlot.GetComponent<StatusEffectSlotComponent>();
+            slot.setStatusEffect(tempList[i]);
+        }
+    }
+
     void Update()
     {
-        
     }
 }

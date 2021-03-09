@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class CombatViewer : ScriptableObject
 {
-    public GameObject statusEffectOverview;
+    public GameObject statusEffectOverviewPrefab;
+
+    public GameObject statusEffectOverviewInst;
+
+    public void onCombatInit(){
+        
+    }
 
     public void showEnemyStatus(EnemySlot target)
     {

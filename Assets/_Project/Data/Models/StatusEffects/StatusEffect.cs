@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum StatusEffectType
 {
@@ -16,8 +17,15 @@ public class StatusEffect : ScriptableObject
 
     public StatusEffectType type;
 
-    [TextArea(3, 20)]
+    public Sprite icon;
+
+    [TextArea(3, 10)]
     public string description;
 
     public CharacterEvents events;
+
+    public string print()
+    {
+        return description;
+    }
 }

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c86df61489dd5dd44946739e4a9bac35, type: 3}
-  m_Name: A New Skill
+  m_Name: Skill 2
   m_EditorClassIdentifier: 
-  id: 
-  label: 
-  type: 0
+  id: skill2
+  label: This is Skill 2
+  type: 3
   description: 
