@@ -36,7 +36,9 @@ public class Skill : ScriptableObject
     [SerializeField]
     public List<StatusEffectTag> requirements;
 
-    public bool isValid(CharacterSlot caster)
+    public Scope scope;
+
+    public bool isCastValid(CharacterSlot caster, CharacterSlot target)
     {
         for (int i = restrictions.Count - 1; i > -1; i--)
         {
@@ -55,6 +57,10 @@ public class Skill : ScriptableObject
                 return false;
             }
         }
+        if (!scope.isTargetValid(caster, target))
+        {
+            return false;
+        }
 
         return true;
     }
@@ -66,7 +72,7 @@ public class Skill : ScriptableObject
 
     public void cast(CharacterSlot caster, CharacterSlot target)
     {
-        if (isValid(caster))
+        if (isCastValid(caster, target))
         {
             effect (caster, target);
         }
