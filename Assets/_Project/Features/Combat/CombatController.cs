@@ -4,9 +4,20 @@ using UnityEngine;
 
 public enum CombatState
 {
-    PlayerMenu,
-    SelectSkill,
-    SelectTarget
+    BattleStart,
+    TurnStart,
+    AllyTurn,
+    EnemyTurn,
+    TurnEnd,
+    BattleEnd
+}
+
+public enum CombatMenuState
+{
+    Disabled,
+    Menu,
+    Skill,
+    Target
 }
 
 [
@@ -25,25 +36,81 @@ public class CombatController : ScriptableObject
 
     private CombatState state;
 
+    private CombatMenuState menuState;
+
+    private void processBattleStart()
+    {
+    }
+
+    private void processState()
+    {
+        switch (state)
+        {
+            case CombatState.BattleStart:
+                processBattleStart();
+                break;
+            case CombatState.TurnStart:
+                state = CombatState.AllyTurn;
+                break;
+            case CombatState.AllyTurn:
+                state = CombatState.EnemyTurn;
+                break;
+            case CombatState.EnemyTurn:
+                state = CombatState.TurnEnd;
+                break;
+            case CombatState.TurnEnd:
+                state = CombatState.TurnStart;
+                break;
+            default:
+                state = CombatState.BattleEnd;
+                break;
+        }
+    }
+
+    private void nextState()
+    {
+        switch (state)
+        {
+            case CombatState.BattleStart:
+                state = CombatState.TurnStart;
+                break;
+            case CombatState.TurnStart:
+                state = CombatState.AllyTurn;
+                break;
+            case CombatState.AllyTurn:
+                state = CombatState.EnemyTurn;
+                break;
+            case CombatState.EnemyTurn:
+                state = CombatState.TurnEnd;
+                break;
+            case CombatState.TurnEnd:
+                state = CombatState.TurnStart;
+                break;
+            default:
+                state = CombatState.BattleEnd;
+                break;
+        }
+    }
+
     public void onSkillClicked(Skill _skill)
     {
-        if (state != CombatState.SelectSkill)
+        if (menuState != CombatMenuState.Skill)
         {
             return;
         }
 
         skill = _skill;
 
-        state = CombatState.SelectTarget;
+        menuState = CombatMenuState.Target;
     }
 
     public void onEnemyClicked(EnemySlot _target)
     {
-        if (state == CombatState.SelectTarget)
+        if (menuState == CombatMenuState.Target)
         {
             target = _target;
         }
-        else if (state == CombatState.PlayerMenu)
+        else if (menuState == CombatMenuState.Menu)
         {
         }
     }

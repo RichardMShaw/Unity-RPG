@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTeam : Team
+public class AllyTeam : Team
 {
-    public List<Player> team
+    public List<Ally> team
     {
         get
         {
-            List<Player> teammates = new List<Player>();
+            List<Ally> teammates = new List<Ally>();
             int len = frontRow.Count;
             for (int i = 0; i < len; i++)
             {
@@ -23,20 +23,18 @@ public class PlayerTeam : Team
         }
     }
 
-    public List<Player> frontRow;
+    public List<Ally> frontRow;
 
-    public List<Player> backRow;
+    public List<Ally> backRow;
 
-    public Field field;
-
-    public void addFrontRow(Player player)
+    public void addFrontRow(Ally ally)
     {
-        player.row = CharacterRow.front;
+        ally.row = CharacterRow.front;
     }
 
-    public void addBackRow(Player player)
+    public void addBackRow(Ally ally)
     {
-        player.row = CharacterRow.back;
+        ally.row = CharacterRow.back;
     }
 
     public void combatInit()

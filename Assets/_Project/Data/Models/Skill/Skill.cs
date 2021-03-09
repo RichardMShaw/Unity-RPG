@@ -38,6 +38,11 @@ public class Skill : ScriptableObject
 
     public Scope scope;
 
+    public bool isTargetValid(CharacterSlot caster, CharacterSlot target)
+    {
+        return scope.isTargetValid(caster, target);
+    }
+
     public bool isCastValid(CharacterSlot caster, CharacterSlot target)
     {
         for (int i = restrictions.Count - 1; i > -1; i--)

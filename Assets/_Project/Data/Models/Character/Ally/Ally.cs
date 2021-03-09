@@ -4,13 +4,12 @@ using UnityEngine.UI;
 
 [
     CreateAssetMenu(
-        fileName = "A Player Character",
-        menuName = "Combat/Player Character",
+        fileName = "A New Ally Character",
+        menuName = "Combat/Ally",
         order = 0)
 ]
-public class Player : Character
+public class Ally : Character
 {
-
     [Header("Visuals")]
     public Image menu;
 
@@ -19,5 +18,7 @@ public class Player : Character
     [Header("Skills")]
     public List<Skill> skills;
 
-    private PlayerTeam team;
+    private AllyTeam team;
+
+    public int actionPoints;
 }

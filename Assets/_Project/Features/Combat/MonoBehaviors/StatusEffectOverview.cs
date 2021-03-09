@@ -14,7 +14,7 @@ public class StatusEffectOverview : MonoBehaviour
     {
     }
 
-    public void setPlayer(PlayerSlot player)
+    public void setAlly(AllySlot ally)
     {
     }
 
