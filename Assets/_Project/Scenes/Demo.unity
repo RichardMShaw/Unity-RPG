@@ -213,6 +213,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &114472458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114472459}
+  m_Layer: 5
+  m_Name: CombatUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &114472459
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114472458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1094783289}
+  m_Father: {fileID: 380056848}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &380056844
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +339,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1094783289}
+  - {fileID: 114472459}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -483,19 +519,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094783288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473041289}
   - {fileID: 1878000058}
-  m_Father: {fileID: 380056848}
+  m_Father: {fileID: 114472459}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1285.6405, y: 939.23035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094783290
 MonoBehaviour:
@@ -509,12 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26ebf70b12fe3749805ff8bc3997418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 2663483521996244198, guid: 2383b39f93e8baa41879d56c4729540e,
-    type: 3}
-  debuffPrefab: {fileID: 5210994826061412476, guid: 4f7440dde9a171142a03d3af850c463c,
-    type: 3}
-  typelessPrefab: {fileID: 1026990327067781115, guid: 0371e57036f645c4298b4bfbf7d2dcde,
-    type: 3}
+  statusEffectSlot: {fileID: 0}
   temp: {fileID: 1784556986}
   passives: {fileID: 508148277}
 --- !u!1 &1105719520

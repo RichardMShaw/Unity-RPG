@@ -8,7 +8,7 @@ public class CombatViewer : ScriptableObject
 
     public GameObject statusEffectOverviewInst;
 
-    public void onCombatInit(){
+    public void onBattleStart(Field field){
         
     }
 

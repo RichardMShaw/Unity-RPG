@@ -28,26 +28,53 @@ public enum CombatMenuState
 ]
 public class CombatController : ScriptableObject
 {
+    public CombatViewer viewer;
+
+    private CombatState state;
+
+    private CombatMenuState menuState;
+
+    private Field field;
+
+    public List<AllySlot> reservedAllies;
+
+    public List<EnemySlot> reservedEnemies;
+
+    private List<AllySlot> frontRowAllies;
+
+    private List<AllySlot> backRowAllies;
+
+    private List<EnemySlot> frontRowEnemies;
+
+    private List<EnemySlot> backRowEnemies;
+
+    private EnemyTeam enemyTeam;
+
     public Skill skill;
 
     public CharacterSlot caster;
 
     public CharacterSlot target;
 
-    private CombatState state;
-
-    private CombatMenuState menuState;
-
-    private void processBattleStart()
+    private void onBattleStart()
     {
+        var list = field.getAllCharacterSlots();
+        int len = list.Count;
+        for (int i = 0; i < len; i++)
+        {
+            CharacterSlot slot = list[i];
+            list[i].getEvents().battleStart(slot);
+        }
+
+        viewer.onBattleStart (field);
     }
 
-    private void processState()
+    private void onState()
     {
         switch (state)
         {
             case CombatState.BattleStart:
-                processBattleStart();
+                onBattleStart();
                 break;
             case CombatState.TurnStart:
                 state = CombatState.AllyTurn;

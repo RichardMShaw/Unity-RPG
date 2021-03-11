@@ -34,7 +34,7 @@ public class CharacterSlot : ScriptableObject
     public CharacterEvents events;
 
     [Header("Status Effects")]
-    public List<StatusEffectSlot> status;
+    public StatusEffectHandler statusEffectHandler;
 
     public List<StatusEffectTag> tags;
 
@@ -62,6 +62,11 @@ public class CharacterSlot : ScriptableObject
     public virtual List<StatusEffectSlot> getPassiveStatusEffects()
     {
         return null;
+    }
+
+    public virtual CharacterEvents getEvents()
+    {
+        return statusEffectHandler.getEvents();
     }
 
     public virtual Field getField()
