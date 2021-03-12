@@ -14,11 +14,11 @@ public class TeamHandler
         enemyTeam.recycleAll();
     }
 
-    public void copyAllySlot(HeroSlot slot)
+    public void copyHeroSlot(HeroSlot slot)
     {
     }
 
-    public void setAllyTeam()
+    public void setHeroTeam()
     {
     }
 

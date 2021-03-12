@@ -7,7 +7,7 @@ public enum CombatState
     EnterBattle,
     BattleStart,
     TurnStart,
-    AllyTurn,
+    HeroTurn,
     EnemyTurn,
     TurnEnd,
     BattleEnd
@@ -63,9 +63,9 @@ public class CombatController : ScriptableObject
                 onBattleStart();
                 break;
             case CombatState.TurnStart:
-                state = CombatState.AllyTurn;
+                state = CombatState.HeroTurn;
                 break;
-            case CombatState.AllyTurn:
+            case CombatState.HeroTurn:
                 state = CombatState.EnemyTurn;
                 break;
             case CombatState.EnemyTurn:
@@ -88,9 +88,9 @@ public class CombatController : ScriptableObject
                 state = CombatState.TurnStart;
                 break;
             case CombatState.TurnStart:
-                state = CombatState.AllyTurn;
+                state = CombatState.HeroTurn;
                 break;
-            case CombatState.AllyTurn:
+            case CombatState.HeroTurn:
                 state = CombatState.EnemyTurn;
                 break;
             case CombatState.EnemyTurn:
