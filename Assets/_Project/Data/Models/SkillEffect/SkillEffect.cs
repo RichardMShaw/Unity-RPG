@@ -10,7 +10,7 @@ public class SkillEffect : ScriptableObject
     public virtual void cast(
         CharacterSlot caster,
         CharacterSlot target,
-        List<float> potencies
+        List<float> values
     )
     {
     }

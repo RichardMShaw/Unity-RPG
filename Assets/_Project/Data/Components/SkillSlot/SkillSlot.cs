@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public class PlayerSkillSlot
+public class SkillSlot
 {
     //Reference to skill
     public Skill skill;

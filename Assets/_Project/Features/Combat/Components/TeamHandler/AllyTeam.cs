@@ -38,13 +38,13 @@ public class AllyTeam
                 return null;
             }
             newAlly = reservedAllySlots.Dequeue();
-            newAlly.setBaseAlly (ally);
+            newAlly.setTemplate (ally);
             backRowAllies.Add (newAlly);
 
             return newAlly;
         }
         newAlly = reservedAllySlots.Dequeue();
-        newAlly.setBaseAlly (ally);
+        newAlly.setTemplate (ally);
         frontRowAllies.Add (newAlly);
 
         return newAlly;
@@ -65,13 +65,13 @@ public class AllyTeam
                 return null;
             }
             newAlly = reservedAllySlots.Dequeue();
-            newAlly.setBaseAlly (ally);
+            newAlly.setTemplate (ally);
             frontRowAllies.Add (newAlly);
 
             return newAlly;
         }
         newAlly = reservedAllySlots.Dequeue();
-        newAlly.setBaseAlly (ally);
+        newAlly.setTemplate (ally);
         frontRowAllies.Add (newAlly);
 
         return newAlly;

@@ -10,6 +10,16 @@ public class GameEvents : MonoBehaviour
         events = this;
     }
 
+    public event Action<BattleLoadout> onEnterBattle;
+
+    public void enterBattle(BattleLoadout loadout)
+    {
+        if (onEnterBattle != null)
+        {
+            onEnterBattle (loadout);
+        }
+    }
+
     public event Action onBattleStart;
 
     public void battleStart()

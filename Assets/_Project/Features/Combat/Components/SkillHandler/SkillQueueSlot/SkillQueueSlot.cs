@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class SkillQueueSlot
 {
-    public Skill skill;
+    private Skill skill;
 
-    public CharacterSlot caster;
+    private CharacterSlot caster;
 
-    public CharacterSlot target;
+    private CharacterSlot target;
 
     public virtual void cast()
     {

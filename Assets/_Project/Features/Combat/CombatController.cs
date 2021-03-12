@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum CombatState
 {
+    EnterBattle,
     BattleStart,
     TurnStart,
     AllyTurn,
@@ -44,9 +45,14 @@ public class CombatController : ScriptableObject
 
     public CharacterSlot target;
 
+    private void onEnterBattle(BattleLoadout loadout)
+    {
+        field = loadout.field;
+        viewer.setBackground(field.background);
+    }
+
     private void onBattleStart()
     {
-        viewer.onBattleStart (field);
     }
 
     private void onState()

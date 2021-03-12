@@ -17,4 +17,12 @@ public class TeamHandler
     public void copyAllySlot(AllySlot slot)
     {
     }
+
+    public void setAllyTeam()
+    {
+    }
+
+    public void setEnemyTeam()
+    {
+    }
 }

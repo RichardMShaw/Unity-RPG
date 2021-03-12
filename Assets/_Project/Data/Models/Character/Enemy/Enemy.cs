@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Enemy", menuName = "Combat/Enemy Character", order = 0)]
+[CreateAssetMenu(fileName = "New Enemy", menuName = "Database/Enemy", order = 0)]
 public class Enemy : Character
 {
     [Header("Visuals")]

@@ -9,7 +9,5 @@ public class Field : ScriptableObject
 
     public Image background;
 
-    public AllyGroup allyTeam;
-
-    public EnemyGroup enemyTeam;
+    
 }

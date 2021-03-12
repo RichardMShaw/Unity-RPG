@@ -83,4 +83,19 @@ public class Skill : ScriptableObject
             }
         }
     }
+
+    public virtual void cast(
+        CharacterSlot caster,
+        CharacterSlot target,
+        List<float> values
+    )
+    {
+        if (isCastValid(caster, target))
+        {
+            if (skillEffect != null)
+            {
+                skillEffect.cast (caster, target, values);
+            }
+        }
+    }
 }

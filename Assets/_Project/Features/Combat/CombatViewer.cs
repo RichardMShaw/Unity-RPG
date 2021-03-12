@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatViewer : ScriptableObject
 {
@@ -8,7 +9,11 @@ public class CombatViewer : ScriptableObject
 
     public GameObject statusEffectOverviewInst;
 
-    public void onBattleStart(Field field)
+    public void setBackground(Image bg){
+
+    }
+
+    public void onBattleStart()
     {
     }
 

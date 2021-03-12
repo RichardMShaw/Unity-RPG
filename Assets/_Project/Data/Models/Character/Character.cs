@@ -19,11 +19,10 @@ public class Character : ScriptableObject
     [Header("Stats")]
     public int level;
 
-    public Stats stats;
+    [SerializeField]
+    public BaseStats stats;
 
     [Header("Status Effects")]
     [SerializeField]
-    public List<StatusEffectSlot> status;
-
-    public CharacterRow row;
+    public List<StatusEffectSlot> passives;
 }

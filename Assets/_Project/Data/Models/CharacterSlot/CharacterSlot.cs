@@ -8,23 +8,8 @@ public enum Row
     Front,
     Back
 }
-
-[
-    CreateAssetMenu(
-        fileName = "CharacterBase ",
-        menuName = "Combat/CharacterBase Slot",
-        order = 0)
-]
 public class CharacterSlot : ScriptableObject
 {
-    [Header("Base Character")]
-    [SerializeField]
-    public Character character;
-
-    [Header("Position")]
-    public Row row;
-
-    public int index;
 
     [Header("Stats")]
     public int level;

@@ -1,6 +1,14 @@
 public class AllySlot : CharacterSlot
 {
-    public void setBaseAlly(Ally ally)
+    public Ally template;
+
+    public void refresh()
     {
+        temporaySlots.Clear();
+    }
+
+    public void setTemplate(Ally ally)
+    {
+        template = ally;
     }
 }
