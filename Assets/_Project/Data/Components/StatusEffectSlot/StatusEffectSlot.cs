@@ -21,9 +21,4 @@ public class StatusEffectSlot
     {
         return statusEffect.print();
     }
-
-    public StatusEffectType getType()
-    {
-        return statusEffect.type;
-    }
 }

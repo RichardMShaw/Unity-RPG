@@ -8,13 +8,13 @@ public class CombatViewer : ScriptableObject
 
     public GameObject statusEffectOverviewInst;
 
-    public void onBattleStart(Field field){
-        
+    public void onBattleStart(Field field)
+    {
     }
 
     public void showEnemyStatus(EnemySlot target)
     {
-        var temp = target.getTemporaryStatusEffects();
-        var passives = target.getPassiveStatusEffects();
+        var temp = target.temporaySlots;
+        var passives = target.passiveSlots;
     }
 }

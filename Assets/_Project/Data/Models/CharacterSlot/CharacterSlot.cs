@@ -29,48 +29,63 @@ public class CharacterSlot : ScriptableObject
     [Header("Stats")]
     public int level;
 
+    public int health;
+
     public Stats stats;
 
-    public CharacterEvents events;
-
     [Header("Status Effects")]
-    public StatusEffectHandler statusEffectHandler;
+    public List<TemporaryStatusEffectSlot> temporaySlots;
+
+    public List<StatusEffectSlot> passiveSlots;
 
     public List<StatusEffectTag> tags;
 
-    public virtual void loadBaseCharacterBase()
+    public CharacterEvents events;
+
+    public virtual bool
+    addTemporaryStatusEffectSlot(TemporaryStatusEffectSlot slot)
     {
+        if (slot.statusEffect.unique)
+        {
+            var old =
+                temporaySlots.Find(s => s.statusEffect == slot.statusEffect);
+            if (old != null)
+            {
+                var temp = old.compareNewSlot(slot);
+                if (temp == old || temp == null)
+                {
+                    return false;
+                }
+                removeTemporaryStatusEffectSlot (old);
+            }
+        }
+        slot.statusEffect.onAdd(this);
+        events += slot.statusEffect.events;
+        temporaySlots.Add (slot);
+
+        return true;
     }
 
-    public virtual void refreshStatusEffectSlots()
+    public virtual void removeTemporaryStatusEffectSlot(
+        TemporaryStatusEffectSlot slot
+    )
     {
+        slot.statusEffect.onRemove(this);
+        events -= slot.statusEffect.events;
+        temporaySlots.Remove (slot);
     }
 
-    public virtual void addTempStatusEffectSlot(TempStatusEffectSlot slot)
+    public virtual void addStatusEffectSlot(StatusEffectSlot slot)
     {
+        slot.statusEffect.onAdd(this);
+        events += slot.statusEffect.events;
+        passiveSlots.Add (slot);
     }
 
-    public virtual void removeTempStatusEffectSlot(TempStatusEffectSlot slot)
+    public void removeStatusEffectSlot(StatusEffectSlot slot)
     {
-    }
-
-    public virtual List<TempStatusEffectSlot> getTemporaryStatusEffects()
-    {
-        return null;
-    }
-
-    public virtual List<StatusEffectSlot> getPassiveStatusEffects()
-    {
-        return null;
-    }
-
-    public virtual CharacterEvents getEvents()
-    {
-        return statusEffectHandler.getEvents();
-    }
-
-    public virtual Field getField()
-    {
-        return null;
+        slot.statusEffect.onRemove(this);
+        events -= slot.statusEffect.events;
+        passiveSlots.Remove (slot);
     }
 }

@@ -20,8 +20,8 @@ public class StatusEffectOverview : MonoBehaviour
 
     private void setStatusEffectSlots(CharacterSlot character)
     {
-        var tempList = character.getTemporaryStatusEffects();
-        var passivesList = character.getPassiveStatusEffects();
+        var tempList = character.temporaySlots;
+        var passivesList = character.passiveSlots;
 
         foreach (Transform child in temp.transform)
         {

@@ -19,13 +19,33 @@ public class StatusEffect : ScriptableObject
 
     public Sprite icon;
 
+    //There can only be one temporary status effect slot
+    public bool unique;
+
     [TextArea(3, 10)]
     public string description;
 
     public CharacterEvents events;
 
+    public virtual TemporaryStatusEffectSlot
+    compareTemporaryStatusEffectSlots(
+        TemporaryStatusEffectSlot _old,
+        TemporaryStatusEffectSlot _new
+    )
+    {
+        return null;
+    }
+
     public string print()
     {
         return description;
+    }
+
+    public void onAdd(CharacterSlot target)
+    {
+    }
+
+    public void onRemove(CharacterSlot target)
+    {
     }
 }
