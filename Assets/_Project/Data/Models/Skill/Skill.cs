@@ -38,12 +38,15 @@ public class Skill : ScriptableObject
 
     public Scope scope;
 
-    public bool isTargetValid(CharacterSlot caster, CharacterSlot target)
+    public SkillEffect skillEffect;
+
+    public virtual bool
+    isTargetValid(CharacterSlot caster, CharacterSlot target)
     {
         return scope.isTargetValid(caster, target);
     }
 
-    public bool isCastValid(CharacterSlot caster, CharacterSlot target)
+    public virtual bool isCastValid(CharacterSlot caster, CharacterSlot target)
     {
         for (int i = restrictions.Count - 1; i > -1; i--)
         {
@@ -70,16 +73,14 @@ public class Skill : ScriptableObject
         return true;
     }
 
-    public virtual void effect(CharacterSlot caster, CharacterSlot target)
-    {
-        Debug.Log("There is no skill. Shi-neh");
-    }
-
-    public void cast(CharacterSlot caster, CharacterSlot target)
+    public virtual void cast(CharacterSlot caster, CharacterSlot target)
     {
         if (isCastValid(caster, target))
         {
-            effect (caster, target);
+            if (skillEffect != null)
+            {
+                skillEffect.cast (caster, target);
+            }
         }
     }
 }

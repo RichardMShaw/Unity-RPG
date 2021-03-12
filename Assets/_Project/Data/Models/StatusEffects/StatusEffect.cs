@@ -41,11 +41,13 @@ public class StatusEffect : ScriptableObject
         return description;
     }
 
-    public void onAdd(CharacterSlot target)
+    //Only apply stat modifications in this function
+    public virtual void onAdd(CharacterSlot target)
     {
     }
 
-    public void onRemove(CharacterSlot target)
+    //Remove all of the modifications above
+    public virtual void onRemove(CharacterSlot target)
     {
     }
 }

@@ -8,8 +8,4 @@ using UnityEngine;
 // ]
 public class RegenOnTurnEnd : Skill
 {
-    public override void effect(CharacterSlot caster, CharacterSlot target)
-    {
-        Debug.Log("This is a Regen Skill. It does Regen stuff.");
-    }
 }
