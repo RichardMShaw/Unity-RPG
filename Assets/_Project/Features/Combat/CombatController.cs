@@ -36,19 +36,7 @@ public class CombatController : ScriptableObject
 
     private Field field;
 
-    public List<AllySlot> reservedAllies;
-
-    public List<EnemySlot> reservedEnemies;
-
-    private List<AllySlot> frontRowAllies;
-
-    private List<AllySlot> backRowAllies;
-
-    private List<EnemySlot> frontRowEnemies;
-
-    private List<EnemySlot> backRowEnemies;
-
-    private EnemyTeam enemyTeam;
+    public TeamHandler teamHandler;
 
     public Skill skill;
 
@@ -58,14 +46,6 @@ public class CombatController : ScriptableObject
 
     private void onBattleStart()
     {
-        var list = field.getAllCharacterSlots();
-        int len = list.Count;
-        for (int i = 0; i < len; i++)
-        {
-            CharacterSlot slot = list[i];
-            list[i].getEvents().battleStart(slot);
-        }
-
         viewer.onBattleStart (field);
     }
 

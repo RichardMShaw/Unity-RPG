@@ -9,12 +9,7 @@ public class Field : ScriptableObject
 
     public Image background;
 
-    public AllyTeam allyTeam;
+    public AllyGroup allyTeam;
 
-    public EnemyTeam enemyTeam;
-
-    public List<CharacterSlot> getAllCharacterSlots()
-    {
-        return null;
-    }
+    public EnemyGroup enemyTeam;
 }
