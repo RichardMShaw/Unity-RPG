@@ -12,5 +12,5 @@ public class BattleLoadout : ScriptableObject
 
     public EnemyGroup enemyGroup;
 
-    public AllyGroup allyGroup;
+    public HeroGroup heroGroup;
 }

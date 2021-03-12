@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class TeamHandler
 {
-    public AllyTeam allyTeam;
+    public HeroTeam heroTeam;
 
     public EnemyTeam enemyTeam;
 
     public void recycleAll()
     {
-        allyTeam.recycleAll();
+        heroTeam.recycleAll();
         enemyTeam.recycleAll();
     }
 
-    public void copyAllySlot(AllySlot slot)
+    public void copyAllySlot(HeroSlot slot)
     {
     }
 

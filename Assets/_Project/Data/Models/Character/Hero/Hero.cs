@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "New Ally", menuName = "Database/Ally", order = 0)]
-public class Ally : Character
+[CreateAssetMenu(fileName = "New Hero", menuName = "Database/Hero", order = 0)]
+public class Hero : Character
 {
     [Header("Visuals")]
     public Image menu;
