@@ -1,7 +1,11 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
+[Serializable]
 public class SkillSlot
 {
+    [SerializeField]
     //Reference to skill
     public Skill skill;
 

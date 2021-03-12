@@ -11,5 +11,6 @@ public class Ally : Character
     public Image icon;
 
     [Header("Skills")]
+    [SerializeField]
     public List<SkillSlot> skills;
 }
