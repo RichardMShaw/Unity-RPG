@@ -124,7 +124,7 @@ public class BattleController : ScriptableObject
             target = enemySlot;
             GameEvents
                 .events
-                .onAddSkillToQueue(new SkillQueueSlot(caster, target, skill));
+                .addSkillToQueue(new SkillQueueSlot(caster, target, skill));
         }
         else if (menuState == BattleMenuState.SelectSkill)
         {
