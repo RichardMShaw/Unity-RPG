@@ -25,8 +25,5 @@ public class Regen : StatusEffect
 
     public void onTurnEnd(CharacterSlot caster)
     {
-        GameEvents
-            .events
-            .addSkillToQueue(new SkillQueueSlot(turnEndSkill, caster, caster));
     }
 }
