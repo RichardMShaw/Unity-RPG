@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Hero : Character
 {
     [Header("Visuals")]
-    public Image menu;
+    public Texture menu;
 
-    public Image icon;
+    public Texture icon;
 
     [Header("Skills")]
     [SerializeField]

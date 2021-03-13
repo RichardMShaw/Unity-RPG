@@ -7,7 +7,7 @@ public class Field : ScriptableObject
 {
     public string label;
 
-    public Image background;
+    public Texture background;
 
     
 }

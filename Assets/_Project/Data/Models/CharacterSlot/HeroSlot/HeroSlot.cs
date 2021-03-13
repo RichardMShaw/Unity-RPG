@@ -2,9 +2,11 @@ public class HeroSlot : CharacterSlot
 {
     public Hero template;
 
+    public int actionPoint;
+
     public void refresh()
     {
-        temporaySlots.Clear();
+        temporayStatusEffectSlots.Clear();
     }
 
     public void setTemplate(Hero _template)

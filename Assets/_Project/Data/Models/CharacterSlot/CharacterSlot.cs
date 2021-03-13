@@ -8,8 +8,10 @@ public enum Row
     Front,
     Back
 }
+
 public class CharacterSlot : ScriptableObject
 {
+    public string label;
 
     [Header("Stats")]
     public int level;
@@ -19,9 +21,9 @@ public class CharacterSlot : ScriptableObject
     public Stats stats;
 
     [Header("Status Effects")]
-    public List<TemporaryStatusEffectSlot> temporaySlots;
+    public List<TemporaryStatusEffectSlot> temporayStatusEffectSlots;
 
-    public List<StatusEffectSlot> passiveSlots;
+    public List<StatusEffectSlot> passives;
 
     public List<StatusEffectTag> tags;
 
@@ -33,7 +35,8 @@ public class CharacterSlot : ScriptableObject
         if (slot.statusEffect.unique)
         {
             var old =
-                temporaySlots.Find(s => s.statusEffect == slot.statusEffect);
+                temporayStatusEffectSlots
+                    .Find(s => s.statusEffect == slot.statusEffect);
             if (old != null)
             {
                 var temp = old.compareNewSlot(slot);
@@ -46,7 +49,7 @@ public class CharacterSlot : ScriptableObject
         }
         slot.statusEffect.onAdd(this);
         events += slot.statusEffect.events;
-        temporaySlots.Add (slot);
+        temporayStatusEffectSlots.Add (slot);
 
         return true;
     }
@@ -57,20 +60,20 @@ public class CharacterSlot : ScriptableObject
     {
         slot.statusEffect.onRemove(this);
         events -= slot.statusEffect.events;
-        temporaySlots.Remove (slot);
+        temporayStatusEffectSlots.Remove (slot);
     }
 
     public virtual void addStatusEffectSlot(StatusEffectSlot slot)
     {
         slot.statusEffect.onAdd(this);
         events += slot.statusEffect.events;
-        passiveSlots.Add (slot);
+        passives.Add (slot);
     }
 
     public void removeStatusEffectSlot(StatusEffectSlot slot)
     {
         slot.statusEffect.onRemove(this);
         events -= slot.statusEffect.events;
-        passiveSlots.Remove (slot);
+        passives.Remove (slot);
     }
 }

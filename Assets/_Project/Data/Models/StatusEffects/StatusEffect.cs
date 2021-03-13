@@ -17,7 +17,7 @@ public class StatusEffect : ScriptableObject
 
     public StatusEffectType type;
 
-    public Sprite icon;
+    public Texture icon;
 
     //There can only be one temporary status effect slot
     public bool unique;
