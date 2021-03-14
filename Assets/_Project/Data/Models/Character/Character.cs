@@ -20,7 +20,7 @@ public class Character : ScriptableObject
     public int level;
 
     [SerializeField]
-    public BaseStats stats;
+    public BaseStats baseStats;
 
     [Header("Status Effects")]
     [SerializeField]

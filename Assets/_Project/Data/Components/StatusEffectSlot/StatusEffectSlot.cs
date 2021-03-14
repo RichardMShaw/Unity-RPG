@@ -9,11 +9,24 @@ public class StatusEffectSlot
 
     public List<float> values;
 
+    public void onAdd(CharacterSlot target)
+    {
+        statusEffect.onAdd (target);
+    }
+
     public StatusEffectType type
     {
         get
         {
             return statusEffect.type;
+        }
+    }
+
+    public CharacterEvents events
+    {
+        get
+        {
+            return statusEffect.events;
         }
     }
 

@@ -18,8 +18,9 @@ public class TeamHandler
     {
     }
 
-    public void setHeroTeam()
+    public void setHeroTeam(HeroGroup heroGroup)
     {
+        
     }
 
     public void setEnemyTeam()

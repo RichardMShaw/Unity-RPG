@@ -88,6 +88,12 @@ public class CharacterStat
         return didRemove;
     }
 
+    public virtual void removeAllModifiers()
+    {
+        statModifiers.Clear();
+        isDirty = true;
+    }
+
     protected virtual float calculateFinalValue()
     {
         float finalValue = baseValue;

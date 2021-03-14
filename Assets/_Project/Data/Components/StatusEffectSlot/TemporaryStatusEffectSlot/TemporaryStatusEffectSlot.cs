@@ -20,6 +20,16 @@ public class TemporaryStatusEffectSlot : StatusEffectSlot
     //Is not removed on defeat
     public bool persistance;
 
+    public TemporaryStatusEffectSlot createClone()
+    {
+        return new TemporaryStatusEffectSlot(caster,
+            statusEffect,
+            duration,
+            unremovable,
+            lasting,
+            persistance);
+    }
+
     public TemporaryStatusEffectSlot
     compareNewSlot(TemporaryStatusEffectSlot _new)
     {

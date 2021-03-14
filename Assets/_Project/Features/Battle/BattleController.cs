@@ -45,6 +45,20 @@ public class BattleController : ScriptableObject
 
     public CharacterSlot target;
 
+    private void castSkill()
+    {
+        if (skill.isTargetValid(caster, target))
+        {
+            GameEvents
+                .events
+                .addSkillToQueue(new SkillQueueSlot(caster, target, skill));
+        }
+        else
+        {
+            target = null;
+        }
+    }
+
     private void onEnterBattle(BattleLoadout loadout)
     {
         field = loadout.field;
@@ -52,6 +66,10 @@ public class BattleController : ScriptableObject
     }
 
     private void onBattleStart()
+    {
+    }
+
+    private void onHeroTurn()
     {
     }
 
@@ -122,9 +140,6 @@ public class BattleController : ScriptableObject
         if (menuState == BattleMenuState.SelectTarget)
         {
             target = enemySlot;
-            GameEvents
-                .events
-                .addSkillToQueue(new SkillQueueSlot(caster, target, skill));
         }
         else if (menuState == BattleMenuState.SelectSkill)
         {
@@ -139,6 +154,9 @@ public class BattleController : ScriptableObject
         }
         if (menuState == BattleMenuState.SelectTarget)
         {
+            GameEvents
+                .events
+                .addSkillToQueue(new SkillQueueSlot(caster, target, skill));
             target = heroSlot;
         }
     }

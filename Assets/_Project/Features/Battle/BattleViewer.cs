@@ -55,7 +55,7 @@ public class BattleViewer : MonoBehaviour
 
     public void showEnemyStatus(EnemySlot target)
     {
-        var temp = target.temporayStatusEffectSlots;
+        var temp = target.temporaryStatusEffectSlots;
         var passives = target.passives;
     }
 }

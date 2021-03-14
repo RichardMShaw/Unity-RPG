@@ -3,12 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Row
-{
-    Front,
-    Back
-}
-
 public class CharacterSlot : ScriptableObject
 {
     public string label;
@@ -21,13 +15,19 @@ public class CharacterSlot : ScriptableObject
     public Stats stats;
 
     [Header("Status Effects")]
-    public List<TemporaryStatusEffectSlot> temporayStatusEffectSlots;
+    public CharacterEvents events;
 
-    public List<StatusEffectSlot> passives;
+    public List<TemporaryStatusEffectSlot> temporaryStatusEffectSlots;
+
+    public virtual List<StatusEffectSlot> passives
+    {
+        get
+        {
+            return null;
+        }
+    }
 
     public List<StatusEffectTag> tags;
-
-    public CharacterEvents events;
 
     public virtual bool
     addTemporaryStatusEffectSlot(TemporaryStatusEffectSlot slot)
@@ -35,7 +35,7 @@ public class CharacterSlot : ScriptableObject
         if (slot.statusEffect.unique)
         {
             var old =
-                temporayStatusEffectSlots
+                temporaryStatusEffectSlots
                     .Find(s => s.statusEffect == slot.statusEffect);
             if (old != null)
             {
@@ -49,7 +49,7 @@ public class CharacterSlot : ScriptableObject
         }
         slot.statusEffect.onAdd(this);
         events += slot.statusEffect.events;
-        temporayStatusEffectSlots.Add (slot);
+        temporaryStatusEffectSlots.Add (slot);
 
         return true;
     }
@@ -60,20 +60,6 @@ public class CharacterSlot : ScriptableObject
     {
         slot.statusEffect.onRemove(this);
         events -= slot.statusEffect.events;
-        temporayStatusEffectSlots.Remove (slot);
-    }
-
-    public virtual void addStatusEffectSlot(StatusEffectSlot slot)
-    {
-        slot.statusEffect.onAdd(this);
-        events += slot.statusEffect.events;
-        passives.Add (slot);
-    }
-
-    public void removeStatusEffectSlot(StatusEffectSlot slot)
-    {
-        slot.statusEffect.onRemove(this);
-        events -= slot.statusEffect.events;
-        passives.Remove (slot);
+        temporaryStatusEffectSlots.Remove (slot);
     }
 }

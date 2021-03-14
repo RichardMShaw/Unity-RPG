@@ -62,7 +62,7 @@ public class HeroSlotComponent : MonoBehaviour
     public void loadStatusEffectsFromHero()
     {
         statusEffects.Clear();
-        var tempSlots = heroSlot.temporayStatusEffectSlots;
+        var tempSlots = heroSlot.temporaryStatusEffectSlots;
         int len = tempSlots.Count;
         int i = 0;
         for (; i < len; i++)

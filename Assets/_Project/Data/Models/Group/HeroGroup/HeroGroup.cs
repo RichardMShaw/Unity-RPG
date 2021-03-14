@@ -10,7 +10,8 @@ using UnityEngine;
 ]
 public class HeroGroup : ScriptableObject
 {
-    List<HeroSlot> frontRow;
 
-    List<HeroSlot> backRow;
+    public List<HeroSlot> frontRow;
+
+    public List<HeroSlot> backRow;
 }

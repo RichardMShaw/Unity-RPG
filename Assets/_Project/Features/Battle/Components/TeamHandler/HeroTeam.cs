@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class HeroTeam
 {
+    public List<HeroSlot> originalHeroSlots;
+
+    public List<HeroSlot> clonedHeroSlots;
+
     public Queue<HeroSlot> reservedHeroSlots;
+
+    public List<HeroSlot> reservedClonedHeroSlots;
 
     public List<HeroSlot> frontRowHeroes;
 
@@ -21,7 +27,29 @@ public class HeroTeam
         {
             reservedHeroSlots.Enqueue(backRowHeroes[i]);
         }
+        for (int i = reservedClonedHeroSlots.Count; i > -1; i--)
+        {
+            reservedHeroSlots.Enqueue(reservedClonedHeroSlots[i]);
+        }
         backRowHeroes.Clear();
+    }
+
+    public void setHeroGroup(HeroGroup heroGroup)
+    {
+        recycleAll();
+        var front = heroGroup.frontRow;
+        int len = front.Count;
+        for (int i = 0; i < len; i++)
+        {
+            var newHero = reservedHeroSlots.Dequeue();
+            newHero.clone(front[i]);
+        }
+        var back = heroGroup.backRow;
+        for (int i = 0; i < len; i++)
+        {
+            var newHero = reservedHeroSlots.Dequeue();
+            newHero.clone(back[i]);
+        }
     }
 
     public HeroSlot addHeroToFrontRow(Hero hero)
@@ -86,7 +114,7 @@ public class HeroTeam
                 return false;
             }
         }
-        reservedHeroSlots.Enqueue (slot);
+        reservedClonedHeroSlots.Add (slot);
         return true;
     }
 }
